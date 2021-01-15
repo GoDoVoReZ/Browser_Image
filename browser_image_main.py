@@ -65,9 +65,18 @@ def filter_image(path_to_image, n):
 
     st.image(image, width=400)
 
-if use_default_image:
-    st.image(default_image, width=400)
+def sidebar_image():
     st.sidebar.markdown('## **How your need to change image?**')
+
+    global blur
+    global contour 
+    global detail 
+    global edge
+    global emboss
+    global find_edges
+    global smooth
+    global sharpen
+
     blur    = st.sidebar.button('Blur')
     contour = st.sidebar.button('CONTOUR')
     detail  = st.sidebar.button('DETAIL')
@@ -76,6 +85,12 @@ if use_default_image:
     find_edges = st.sidebar.button('FIND_EDGES')
     smooth  = st.sidebar.button('SMOOTH')
     sharpen = st.sidebar.button('SHARPEN')
+
+
+if use_default_image:
+    st.image(default_image, width=400)
+
+    sidebar_image()
 
     if blur:
         filter_image(default_image, 0)
@@ -93,6 +108,28 @@ if use_default_image:
         filter_image(default_image, 6)
     elif sharpen:
         filter_image(default_image, 7)
+elif uploaded_file:
+    st.image(uploaded_file, width=400)
+
+    sidebar_image()
+
+    if blur:
+        filter_image(uploaded_file, 0)
+    elif contour:
+        filter_image(uploaded_file, 1)
+    elif detail:
+        filter_image(uploaded_file, 2)
+    elif edge:
+        filter_image(uploaded_file, 3)
+    elif emboss:
+        filter_image(uploaded_file, 4)
+    elif find_edges:
+        filter_image(uploaded_file, 5)
+    elif smooth:
+        filter_image(uploaded_file, 6)
+    elif sharpen:
+        filter_image(uploaded_file, 7)
+
 
 
 
