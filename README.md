@@ -2,6 +2,14 @@
 
 ![promo](./readme_image/promo.png)
 
+## Wow! version 0.0.2 is available!!
+## Features of 0.0.2:
+1. Added two new filters for images
+
+![n_btn](./readme_image/n_btn.png)
+
+2. That's all for now))
+
 ## How to use this project?
 1. **Download** the repository
 2. **Download** libraries from **requirments.txt**
@@ -13,3 +21,8 @@
 ![btn](./readme_image/btn.png)
 7. After that, in the window that appears, you can select the type of changes
 ![menu](./readme_image/menu.png)
+
+
+# Versions
+1. **v.0.0.1** (15.01.2021) 
+2. **v.0.0.2** (16.01.2021)
