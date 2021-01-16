@@ -26,7 +26,7 @@ def gray_scale_image(path_to_image):
             mid = (r + g + b) // 3
             draw.point((x, y), (mid, mid, mid))
 
-    st.image(image)
+    st.image(image, width=400)
 
 def inverse_image(path_to_image):
     image = Image.open(path_to_image)
@@ -42,7 +42,7 @@ def inverse_image(path_to_image):
             b = pix[x, y][2]
             draw.point((x, y), (255 - r, 255 - g, 255 - b))
 
-    st.image(image)
+    st.image(image, width=400)
 
 def filter_image(path_to_image, n):
     image = Image.open(path_to_image)
@@ -76,8 +76,10 @@ def sidebar_image():
     global find_edges
     global smooth
     global sharpen
+    global gray_scale 
+    global inverse
 
-    blur    = st.sidebar.button('Blur')
+    blur    = st.sidebar.button('BLUR')
     contour = st.sidebar.button('CONTOUR')
     detail  = st.sidebar.button('DETAIL')
     edge    = st.sidebar.button('EDGE_ENHANCE')
@@ -85,6 +87,8 @@ def sidebar_image():
     find_edges = st.sidebar.button('FIND_EDGES')
     smooth  = st.sidebar.button('SMOOTH')
     sharpen = st.sidebar.button('SHARPEN')
+    gray_scale = st.sidebar.button('GRAYSCALE')
+    inverse = st.sidebar.button('INVERSE')
 
 
 if use_default_image:
@@ -108,6 +112,10 @@ if use_default_image:
         filter_image(default_image, 6)
     elif sharpen:
         filter_image(default_image, 7)
+    elif gray_scale:
+        gray_scale_image(default_image)
+    elif inverse:
+        inverse_image(default_image)
 elif uploaded_file:
     st.image(uploaded_file, width=400)
 
@@ -129,6 +137,10 @@ elif uploaded_file:
         filter_image(uploaded_file, 6)
     elif sharpen:
         filter_image(uploaded_file, 7)
+    elif gray_scale:
+        gray_scale_image(uploaded_file)
+    elif inverse:
+        inverse_image(uploaded_file)
 
 
 
